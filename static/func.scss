@@ -1,0 +1,43 @@
+$base: 1;
+$color1: #fff;
+$color2: #401C44;
+$color2: #8B008B;
+$color3: #000;
+$color4: #ff0084;
+$color5: #7810ab;
+$color5: $color2 - 30;
+@mixin clearFloat(){
+	&:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+@mixin borderImage(){
+	-webkit-border-image:
+	-webkit-gradient(linear, 0 0, 0 100%, from(black), to(rgba(0, 0, 14, 0))) 1 100%;
+	-webkit-border-image:
+	-webkit-linear-gradient(black, rgba(0, 0, 14, 0)) 1 100%;
+	-moz-border-image:
+	-moz-linear-gradient(black, rgba(0, 0, 14, 0)) 1 100%;
+	-o-border-image:
+	-o-linear-gradient(black, rgba(0, 0, 14, 0)) 1 100%;
+	border-image:
+	linear-gradient(to bottom, black, rgba(0, 0, 14, 0)) 1 100%;
+}
+@mixin btn(){
+	outline: none;
+	width: 150px * $base;
+	line-height: 35px * $base;
+	text-align: center;
+	color: $color2;
+	cursor: pointer;
+	margin-left: 50px * $base;
+	display: inline-block;
+	border: solid 1px $color2;
+	box-sizing: border-box;
+	&.selected{
+		background-color: $color2;
+		color: $color1;
+	}
+}

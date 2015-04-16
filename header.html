@@ -1,0 +1,39 @@
+
+<div class="global-nav">
+	<ul>
+		<li><a data-rel="root" data-home="" href="home.php">首页</a></li>
+					<li><a data-rel="root" data-politics="" href="politics">时政</a></li>
+					<li><a data-rel="root" data-finance="" href="finance">财经</a></li>
+					<li><a data-rel="root" data-sports="" href="sports">体育</a></li>
+					<li><a data-rel="root" data-entertainment="" href="entertainment">娱乐</a></li>
+					<li><a data-rel="root" data-fashion="" href="fashion">时尚</a></li>
+					<li><a data-rel="root" data-military="" href="military">军事</a></li>
+					<li><a data-rel="root" data-car="" href="car">汽车</a></li>
+					<li><a data-rel="root" data-house="" href="house">房产</a></li>
+					<li><a data-rel="root" data-game="" href="game">游戏</a></li>
+
+<!-- 		<li class="username right"><a href=''></a></li>
+		<ul>
+			<li class="hover"><a href="act-account.php?out=0">退出登录</a></li>
+			<li class="hover" data-rel="import"><a href="import.php">投稿</a></li>
+		</ul>
+		<li class="username right"><a href="about.php">欢迎您！</a></li>
+
+		<li class="right"><a href="login.php">登陆</a></li>
+		<li class="right"><a href="login.php" target="blank">注册</a></li> -->
+
+	</ul>
+</div>
+<script>
+var nav_rel = window.location.pathname;
+nav_rel = nav_rel.replace(/^(\/)(\w*)(\/||\.)(.*)$/,"$2");
+$(".global-nav ul li a[data-"+nav_rel+"]").addClass("selected");
+
+checkLogin(loginStatus);
+
+$("a[data-rel='root']").each(function(index){
+	var a = $(this).attr('href');
+	$(this).attr('href',root+a);
+})
+
+</script>
