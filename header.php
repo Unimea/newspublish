@@ -25,3 +25,6 @@ var nav_rel = window.location.pathname;
 nav_rel = nav_rel.replace(/^(\/)(\w*)(\/||\.)(.*)$/,"$2");
 $(".global-nav ul li a[data-"+nav_rel+"]").addClass("selected");
 </script>
+//add first line.
+//add second line.
+
