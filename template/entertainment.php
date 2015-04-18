@@ -16,7 +16,7 @@ header.htmlDOCTYPE html>
 	<div class="page article-page politics-page">
 		<div class="container">
 			<div class="flag">娱乐</div>
-			<div class="title">
+			<div class="title" data-filestamp="[REPLACE4filestamp]">
 				[REPLACE4title]
 			</div>
 			<div class="subtitle">

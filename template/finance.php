@@ -16,7 +16,7 @@
 	<div class="page article-page finance-page">
 		<div class="container">
 			<div class="flag">财经</div>
-			<div class="title">
+			<div class="title" data-filestamp="[REPLACE4filestamp]">
 				[REPLACE4title]
 			</div>
 			<div class="subtitle">
