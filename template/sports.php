@@ -16,7 +16,7 @@
 	<div class="page article-page politics-page">
 		<div class="container">
 			<div class="flag">体育</div>
-			<div class="title">
+			<div class="title" data-filestamp="[REPLACE4filestamp]">
 				[REPLACE4title]
 			</div>
 			<div class="subtitle">

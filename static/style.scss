@@ -8,9 +8,88 @@
 }
 
 .hide {
-    display: none;
+    display: none!important;
 }
-
+.comment{
+    width: 1000px;
+    .line{
+        padding-bottom: 20px;
+        .btn{
+            @include btn-hover();
+            border-color: #eee;
+            &.watch{
+                margin-left: 50px;
+            }
+        }
+        textarea{
+            width: 100%;
+            border-color: #eee;
+        }
+    }
+    .show{
+        .comment-list{
+            .comment-item{
+                border: solid 1px #f2f2f2;
+                padding: 20px;
+                margin-bottom: 5px;
+                box-shadow: 0 1px 3px 0 #fafafa;
+                position: relative;
+                &:hover{
+                    background-color: #FFFFE0;
+                }
+                .line{
+                    border-bottom: dashed 1px #f2f2f2;
+                    padding: 0;
+                    @include clearFloat();
+                    span{
+                        display: inline-block;
+                        line-height: 40px;
+                        &.name{
+                            width: 37.5%;
+                            color: $color4;
+                            font-weight: bold;
+                            font-size: 16px;
+                        }
+                        &.time{
+                            width: 50%;
+                            text-align: right;
+                            color: #777;
+                            font-style: italic;
+                            font-size: 12px;
+                            &:hover{
+                                color: $color3;
+                            }
+                        }
+                        &.content{
+                            display: block;
+                            text-indent: 2em;
+                        }
+                        &.up,&.down,&.reply{
+                            float: right;
+                            width: 60px;
+                            color: $color4 - 50;
+                            font-size: 14px;
+                            cursor: pointer;
+                            &:hover{
+                                color: $color4;
+                                text-decoration: underline;
+                            }
+                        }
+                        &.down{
+                            color: $color2 - 50;
+                            &:hover{
+                                color: $color2;
+                            }
+                        }
+                        &.little{
+                            font-size: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 .global-nav {
     background-color: $color2;
     ul {
@@ -206,10 +285,7 @@
                         }
                     }
                     @for $o from 1 to 10 {
-                        &:nth-of-type(# {
-                            $o
-                        }
-                        ).selected {
+                        &:nth-of-type(#{$o}).selected {
                             left: 0;
                             top: -350px * ($o - 1);
                             transition: all 1s cubic-bezier(0.32, 1.24, 0.78, 1.1);
@@ -270,10 +346,7 @@
                         text-align: center;
                     }
                     @for $o from 1 to 10 {
-                        &:nth-of-type(# {
-                            $o
-                        }
-                        ).selected {
+                        &:nth-of-type(#{$o}).selected {
                             top: -30px * ($o - 1);
                             opacity: 1;
                         }
@@ -446,6 +519,7 @@
 .login-page {
     .btn {
         @include btn();
+        margin-left: 50px * $base;
         &.type2 {
             &:hover {
                 background-color: $color2;
@@ -574,6 +648,8 @@
             .author {
                 float: right;
             }
+        }
+        .php-code{
         }
     }
 }

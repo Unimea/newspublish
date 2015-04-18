@@ -1,5 +1,8 @@
 $(function() {
 
+    var comment_area = "<div class=\"php-code\">echo file_get_contents($_SERVER['DOCUMENT_ROOT'].'/comment.php');</div>";
+    $(".article-page .container").append(comment_area);
+
     act_php_dir = "../act-php.php";
     $('.php-code').each(function(index) {
         var txt = $(this).text();
@@ -30,6 +33,67 @@ $(document).on({
     }
 }, ".btn.self")
 
+//##评论模块：
+$(document).on({
+    click: function() {
+        $(this).hasClass("selected")?$(this).removeClass("selected").parent().siblings('.line').hide(500):$(this).addClass("selected").parent().siblings('.line').show(500);
+    }
+}, ".comment .btn.comment")
+
+$(document).on({
+    click: function() {
+        $(".comment .show").hasClass('selected')?$(".comment .show").removeClass('selected').hide(500):$(".comment .show").addClass('selected').show(500);
+        ajaxGetComment();
+    }
+}, ".comment .btn.watch")
+
+$(document).on({
+    click: function() {
+        $.ajax({
+            type: "GET",
+            data: {
+                filestamp: $(".article-page .title").data("filestamp"),
+                time: new Date(),
+                comment: $("[name='comment']").val(),
+            },
+            url: root + "act-comment.php",
+            success: function(e) {
+                ajaxGetComment();
+            }
+        })
+    }
+}, ".comment .btn.submit")
+
+$(document).on({
+    click: function() {
+        $.ajax({
+            type: "GET",
+            data: {
+                id: $(this).parents(".comment-item").data("id"),
+                behavior: $(this).data("behavior"),
+            },
+            url: root + "act-comment.php",
+            success: function(e) {
+                ajaxGetComment();
+            }
+        })
+    }
+}, ".comment .comment-item .up,.comment .comment-item .down")
+
+function ajaxGetComment(){
+    $.ajax({
+            type: "GET",
+            data: {
+                filestamp: $(".article-page .title").data("filestamp"),
+            },
+            url: root + "comment-show.php",
+            success: function(e) {
+                $(".comment .show").html(e);
+            }
+        })
+}
+
+//##静态页面获取动态参数 或 php变量：
 function ask(x) {
     var back = "";
     $.ajax({
