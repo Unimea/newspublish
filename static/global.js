@@ -93,7 +93,7 @@ function ajaxGetComment(){
         })
 }
 
-//##静态页面获取动态参数 或 php的变量：
+//##静态页面获取动态参数 或 php变量：
 function ask(x) {
     var back = "";
     $.ajax({
